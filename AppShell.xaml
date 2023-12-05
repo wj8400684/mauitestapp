@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Shell
+    x:Class="mauitestapp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:mauitestapp"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <Tab Title="消息">
+            <Tab.Icon>
+                <FontImageSource Size="40"
+                                 Glyph="&#xe65c;"
+                                 FontFamily="iconfont" />
+            </Tab.Icon>
+            <ShellContent
+                Title="联系人"
+                ContentTemplate="{DataTemplate local:MainPage}"
+                Route="MainPage" />
+        </Tab>
+
+        <Tab Title="联系人">
+            <Tab.Icon>
+                <FontImageSource Size="40"
+                                 Glyph="&#xe668;"
+                                 FontFamily="iconfont" />
+            </Tab.Icon>
+            <ShellContent
+                Title="联系人"
+                ContentTemplate="{DataTemplate local:MainPage}"
+                Route="MainPage" />
+        </Tab>
+
+    </TabBar>
+
+
+</Shell>

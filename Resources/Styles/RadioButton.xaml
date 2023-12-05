@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Style TargetType="RadioButton" x:Key="NavButtonFontIcon">
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="FontFamily" Value="iconfont" />
+        <Setter Property="Padding" Value="{OnIdiom Desktop=3,Phone=1}" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="TextColor"
+                Value="{AppThemeBinding Light={StaticResource NavButtonBackgroundColorBrushLight}, Dark={StaticResource NavButtonBackgroundColorBrushLight}}" />
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+
+                <!--选中状态-->
+                <VisualStateGroup x:Name="CheckStates">
+
+                    <VisualState x:Name="PointerOver">
+                        <VisualState.Setters>
+                            <Setter Property="TextColor"
+                                    Value="{AppThemeBinding Light={StaticResource NavButtonSelectedBackgroundColorBrushLight}, Dark={StaticResource NavButtonSelectedBackgroundColorBrushLight}}" />
+                        </VisualState.Setters>
+
+                    </VisualState>
+
+                    <!--选中-->
+                    <VisualState x:Name="Checked">
+                        <VisualState.Setters>
+                            <Setter Property="TextColor"
+                                    Value="{AppThemeBinding Light={StaticResource NavButtonSelectedBackgroundColorBrushLight}, Dark={StaticResource NavButtonSelectedBackgroundColorBrushLight}}" />
+                        </VisualState.Setters>
+                    </VisualState>
+
+                    <!--未选中-->
+                    <VisualState x:Name="Unchecked" />
+
+                    <VisualState x:Name="Indeterminate" />
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+        <Setter Property="ControlTemplate">
+            <ControlTemplate>
+                <Border Stroke="Transparent"
+                        BackgroundColor="{TemplateBinding BackgroundColor}"
+                        Padding="{TemplateBinding Padding}">
+                    <VerticalStackLayout Spacing="{OnIdiom Desktop=3,Phone=1}">
+                        <!--图标-->
+                        <Label Text="{TemplateBinding Value}"
+                               FontFamily="{TemplateBinding FontFamily}"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               FontSize="{OnIdiom Desktop=35,Phone=22}"
+                               TextColor="{TemplateBinding TextColor}" />
+                        <!--标题-->
+                        <Label Text="{TemplateBinding Content}"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               FontSize="{OnIdiom Desktop=15,Phone=8}"
+                               TextColor="{TemplateBinding TextColor}" />
+                    </VerticalStackLayout>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+
+    <Style TargetType="RadioButton" x:Key="NavButtonSvgIcon">
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="Padding" Value="{OnIdiom Desktop=3,Phone=1}" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="TextColor"
+                Value="{AppThemeBinding Light={StaticResource NavButtonBackgroundColorBrushLight}, Dark={StaticResource NavButtonBackgroundColorBrushLight}}" />
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <!--选中状态-->
+                <VisualStateGroup x:Name="CheckStates">
+                    <VisualState x:Name="PointerOver">
+                        <VisualState.Setters>
+                            <Setter Property="TextColor"
+                                    Value="{AppThemeBinding Light={StaticResource NavButtonSelectedBackgroundColorBrushLight}, Dark={StaticResource NavButtonSelectedBackgroundColorBrushLight}}" />
+                        </VisualState.Setters>
+
+                    </VisualState>
+                    <!--选中-->
+                    <VisualState x:Name="Checked">
+                        <VisualState.Setters>
+                            <Setter Property="TextColor"
+                                    Value="{AppThemeBinding Light={StaticResource NavButtonSelectedBackgroundColorBrushLight}, Dark={StaticResource NavButtonSelectedBackgroundColorBrushLight}}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Unchecked">
+                        <VisualState.Setters>
+
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Indeterminate" />
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+        <Setter Property="ControlTemplate">
+            <ControlTemplate>
+                <Border Stroke="Transparent"
+                        BackgroundColor="{TemplateBinding BackgroundColor}"
+                        Padding="{TemplateBinding Padding}">
+                    <VerticalStackLayout Spacing="{OnIdiom Desktop=3,Phone=1}">
+                        <!--图标-->
+                        <Path Fill="{TemplateBinding TextColor}"
+                              WidthRequest="25"
+                              HeightRequest="25"
+                              Data="{TemplateBinding Value}"
+                              Aspect="Uniform" />
+
+                        <!--标题-->
+                        <Label Text="{TemplateBinding Content}"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               FontSize="{OnIdiom Desktop=15,Phone=8}"
+                               TextColor="{TemplateBinding TextColor}" />
+                    </VerticalStackLayout>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</ResourceDictionary>

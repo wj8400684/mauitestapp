@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mauitestapp.MainPage"
+             xmlns:views="clr-namespace:mauitestapp.ViewModels"
+             xmlns:extension="clr-namespace:mauitestapp.Extensions"
+             xmlns:conver="clr-namespace:mauitestapp.Converters"
+             x:DataType="views:MainViewModel"
+             xmlns:local="clr-namespace:mauitestapp">
+
+    <ContentPage.Resources>
+        <conver:ReversalConverter x:Key="ReversalConverter" />
+    </ContentPage.Resources>
+
+
+    <Grid RowDefinitions="*,Auto">
+
+        <!-- 用什么承载 contengpage ？ -->
+        <Border Grid.Row="0"
+                BackgroundColor="Blue"/>
+        
+        <Grid Grid.Row="1" 
+              ColumnDefinitions="*,*,*,*">
+            <Grid.Resources>
+                <Style TargetType="RadioButton" BasedOn="{StaticResource NavButtonSvgIcon}">
+
+                </Style>
+            </Grid.Resources>
+
+            <RadioButton Content="消息"
+                         Value="{StaticResource TabBarChat}"
+                         IsChecked="True">
+                <RadioButton.Triggers>
+                    <Trigger TargetType="RadioButton" Property="IsChecked" Value="True">
+                        <Setter Property="Value" Value="{StaticResource TabBarChatSelected}" />
+                    </Trigger>
+                </RadioButton.Triggers>
+            </RadioButton>
+
+            <RadioButton Grid.Column="1"
+                         Content="联系人"
+                         Value="{StaticResource TabBarContacts}">
+                <RadioButton.Triggers>
+                    <Trigger TargetType="RadioButton" Property="IsChecked" Value="True">
+                        <Setter Property="Value" Value="{StaticResource TabBarContactsSelected}" />
+                    </Trigger>
+                </RadioButton.Triggers>
+            </RadioButton>
+
+            <RadioButton Grid.Column="2"
+                         Content="发现"
+                         Value="{StaticResource TabBarFavorites}">
+                <RadioButton.Triggers>
+                    <Trigger TargetType="RadioButton" Property="IsChecked" Value="True">
+                        <Setter Property="Value" Value="{StaticResource TabBarFavoritesSelected}" />
+                    </Trigger>
+                </RadioButton.Triggers>
+            </RadioButton>
+
+            <RadioButton Grid.Column="3"
+                        Content="我"
+                        Value="{StaticResource TabBarChat}">
+                <RadioButton.Triggers>
+                    <Trigger TargetType="RadioButton" Property="IsChecked" Value="True">
+                        <Setter Property="Value" Value="{StaticResource TabBarChatSelected}" />
+                    </Trigger>
+                </RadioButton.Triggers>
+            </RadioButton>
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>
